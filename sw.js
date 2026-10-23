@@ -1,5 +1,5 @@
 /* AIIMS Patna Sarthi - service worker (offline support) */
-const CACHE = 'sarthi-v6';
+const CACHE = 'sarthi-v7';
 const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', function (e) {
