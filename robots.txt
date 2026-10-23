@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abhinavpathak4120.github.io/aiims-patna-sarthi/sitemap.xml
