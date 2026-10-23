@@ -69,7 +69,7 @@
                 </div>
                 <select class="langselect" style="width:100%;text-align:center;padding:12px"><option value="en">English</option><option value="hi">Hindi</option><option value="bho">Bhojpuri</option><option value="mai">Maithili</option></select>
                 <button class="btn" data-go="login" data-i18n="getStarted">Get Started</button>
-                <p class="muted" data-i18n="splashFoot">Indoor Navigation &amp; OPD Companion</p>
+                <p class="muted" data-i18n="splashFoot">Indoor Navigation &amp; OPD Companion</p><p class="muted" data-appv style="text-align:center;font-size:10.5px;margin-top:8px">App version 17</p>
               </div>
             </section>
 
@@ -99,7 +99,7 @@
                 <button class="btn" id="verifyBtn" data-i18n="verify">Verify &amp; Continue</button>
                 <p class="muted" style="text-align:center" data-i18n="resend">Resend OTP in 00:24</p>
               </div>
-              <p class="muted" style="text-align:center;font-size:11px;margin-top:auto" data-i18n="loginNote">Demo prototype — no real OTP is sent.</p>
+              <p class="muted" style="text-align:center;font-size:11px;margin-top:auto" data-i18n="loginNote">Demo prototype — no real OTP is sent.</p><p class="muted" data-appv style="text-align:center;font-size:10.5px;margin-top:6px">App version 17</p>
               <button class="btn ghost sm" data-go="adminlogin" data-i18n="adminLoginLink">🏥 Staff / Admin login</button>
             </section>
 
@@ -650,7 +650,7 @@
                   <span class="chev" style="font-size:11.4px" data-i18n="edit">Edit</span>
                 </div>
               </div>
-              <p class="muted" style="text-align:center;font-size:10.5px;margin:14px 0 0">App version 14</p><button class="btn ghost" id="logoutBtn" data-go="login" data-i18n="logout">Log out</button>
+              <p class="muted" data-appv style="text-align:center;font-size:10.5px;margin:14px 0 0">App version 17</p><button class="btn ghost" id="logoutBtn" data-go="login" data-i18n="logout">Log out</button>
             </section>
 
             <!-- PROFILE EDIT -->
@@ -2309,5 +2309,7 @@
 <script>try{(function(){var w=window.show;window.show=function(a,b){var r=w.apply(this,arguments);try{if("prescription"===a){var p=(typeof patInfo==="function")?patInfo():null;if(p){document.querySelectorAll('[data-rxpat="name"]').forEach(function(x){x.textContent=p.name||"—"});document.querySelectorAll('[data-rxpat="age"]').forEach(function(x){x.textContent=(p.age||"—")+" / "+(p.sex||"—")});document.querySelectorAll('[data-rxpat="uhid"]').forEach(function(x){x.textContent=p.uhid||"—"})}}}catch(e){}return r}})()}catch(e){}</script>
 <script>document.addEventListener("change",function(e){try{var t=e.target;if(t&&t.classList&&t.classList.contains("langselect")){setLang(t.value);try{saveState()}catch(x){}}}catch(x){}});</script>
 <script>document.addEventListener("click",function(e){try{var t=e.target&&e.target.closest&&e.target.closest('[data-toast="tDownload"],[data-toast="tDown"],[data-toast="ambShared"]');if(!t)return;e.preventDefault();e.stopPropagation();var sh=(t.getAttribute("data-toast")==="ambShared")||(t.getAttribute("data-i18n")==="rxShare");if(sh){var msg="AIIMS Patna Sarthi — "+location.href;if(navigator.share){navigator.share({title:"AIIMS Patna Sarthi",text:msg}).catch(function(){})}else if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(msg).then(function(){toast("ambShared")}).catch(function(){toast("ambShared")})}else{toast("ambShared")}}else{try{window.print()}catch(x){}}}catch(x){}},true);</script>
+<script>window.__APPV="17";(function(){try{document.querySelectorAll("[data-appv]").forEach(function(e){e.textContent="App version "+window.__APPV})}catch(e){}})();
+(function(){try{if(sessionStorage.getItem("aiims_upd"))return;fetch("version.json",{cache:"no-store"}).then(function(r){return r.json()}).then(function(v){try{if(v&&v.version&&String(v.version)!==String(window.__APPV)){sessionStorage.setItem("aiims_upd","1");location.replace(location.pathname+"?u="+Date.now())}}catch(e){}}).catch(function(){})}catch(e){}})();</script>
 </body>
 </html>
