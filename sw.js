@@ -1,11 +1,14 @@
 /* AIIMS Patna Sarthi - service worker (offline support) */
-const CACHE = 'sarthi-v1';
+const CACHE = 'sarthi-v2';
 const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', function (e) {
   e.waitUntil(
-    caches.open(CACHE).then(function (c) { return c.addAll(CORE); })
-      .then(function () { return self.skipWaiting(); })
+    caches.open(CACHE).then(function (c) {
+      return Promise.all(CORE.map(function (u) {
+        return fetch(new Request(u, { cache: 'reload' })).then(function (r) { return c.put(u, r); });
+      }));
+    }).then(function () { return self.skipWaiting(); })
   );
 });
 
